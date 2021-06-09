@@ -52,7 +52,7 @@
 
     <!-- 스프링 프레임워크에서 찍는건 level을 info로 설정 -->
     <logger name="org.springframework.*" additivity="false" >
-        <AppenderRef ref="console" level="info" />
+        <AppenderRef ref="console" level="debug" />
     </logger>
 
     <logger name="org.apache.ibatis.*" additivity="false" >
@@ -69,9 +69,12 @@
     <Logger name="org.springframework.jdbc.core.StatementCreatorUtils"
             level="trace" />
 
-    <logger name="siestageek.spring.mvc.*" additivity="false" >
+    <logger name="june.spring.mvc.*" additivity="false" >
         <AppenderRef ref="console" level="info" />
     </logger>
+
+        <!-- spring 5 log -->
+        <logger name="org.springframework.web" level="debug" />
 
     </Loggers>
 </Configuration>
