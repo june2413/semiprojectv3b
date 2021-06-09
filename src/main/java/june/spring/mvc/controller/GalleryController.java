@@ -4,21 +4,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class BoardController {
+public class GalleryController {
 
-    @GetMapping("/board/list")
+    @GetMapping("/gallery/list")
     public String list() {
-        return "board/list.tiles";
+        return "gallery/list.tiles";
     }
 
-    @GetMapping("/board/view")
+    @GetMapping("/gallery/view")
     public String view() {
-        return "board/view.tiles";
+        return "gallery/view.tiles";
     }
 
-    @GetMapping("/board/write")
+    @GetMapping("/gallery/write")
     public String write() {
-        return "board/write.tiles";
+        return "gallery/write.tiles";
     }
 
 }

@@ -4,21 +4,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class BoardController {
+public class PdsController {
 
-    @GetMapping("/board/list")
+    @GetMapping("/pds/list")
     public String list() {
-        return "board/list.tiles";
+        return "pds/list.tiles";
     }
 
-    @GetMapping("/board/view")
+    @GetMapping("/pds/view")
     public String view() {
-        return "board/view.tiles";
+        return "pds/view.tiles";
     }
 
-    @GetMapping("/board/write")
+    @GetMapping("/pds/write")
     public String write() {
-        return "board/write.tiles";
+        return "pds/write.tiles";
     }
 
 }
