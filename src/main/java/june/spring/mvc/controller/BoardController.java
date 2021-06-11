@@ -1,8 +1,10 @@
 package june.spring.mvc.controller;
 
 import june.spring.mvc.dao.BoardDAO;
+import june.spring.mvc.service.BoardReplyService;
 import june.spring.mvc.service.BoardService;
 import june.spring.mvc.vo.Board;
+import june.spring.mvc.vo.Reply;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +14,14 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class BoardController {
 
-    @Autowired private BoardService bsrv;
+     private BoardService bsrv;
+     private BoardReplyService brsrv;
+
+     @Autowired
+    public BoardController(BoardService bsrv, BoardReplyService brsrv) {
+         this.bsrv=bsrv;
+         this.brsrv=brsrv;
+    }
 
     @GetMapping("/board/list")
     public ModelAndView list(ModelAndView mv, String cp) {
@@ -29,6 +38,8 @@ public class BoardController {
 
         mv.setViewName("board/view.tiles");
         mv.addObject("bd", bsrv.readOneBoard(bdno));
+        mv.addObject("rps", brsrv.readReply(bdno));
+
         return mv;
     }
 
@@ -59,5 +70,25 @@ public class BoardController {
                 bsrv.countBoard(findtype, findkey));
 
         return mv;
+    }
+
+    // 댓글쓰기
+    @PostMapping("/reply/write")
+    public String replyok(Reply r){
+         String returnPage="redirect:/board/view?bdno="+r.getBdno();
+
+         brsrv.newComment(r);
+
+         return returnPage;
+    }
+
+
+    @PostMapping("/rreply/write")
+    public String rreplyok(Reply r){
+        String returnPage="redirect:/board/view?bdno="+r.getBdno();
+
+        brsrv.newReply(r);
+
+        return returnPage;
     }
 }
