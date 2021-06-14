@@ -6,7 +6,7 @@ $('#newbdbtn').on('click',function (){
 
 // goto list
 $('#listbdbtn').on('click',function (){
-    location.href = '/board/write';
+    location.href = '/board/list';
 });
 
 //save board
