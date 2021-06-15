@@ -34,7 +34,7 @@
                             작성자</label>
                         <input type="text" name="userid" id="userid"
                                class="form-control col-9 border-danger" readonly
-                                value="'${UID}">
+                                value="${UID}">
                     </div>
                     <div class="form-group row">
                         <label for="contents" 
