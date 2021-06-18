@@ -16,5 +16,5 @@ public interface GalleryService {
     Gallery readOneGallery(String gal);
 
 
-
+    void modifyGallery(Gallery g, MultipartFile[] img);
 }

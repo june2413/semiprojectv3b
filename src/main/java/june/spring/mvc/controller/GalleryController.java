@@ -25,7 +25,6 @@ public class GalleryController {
 
     @GetMapping("/gallery/view")
     public ModelAndView view(ModelAndView mv, String gno) {
-
         mv.setViewName("gallery/view.tiles");
         mv.addObject("g", gsrv.readOneGallery(gno));
         return mv;
@@ -44,4 +43,19 @@ public class GalleryController {
         return "redirect:/gallery/list";
     }
 
+    @GetMapping("/gallery/update")
+    public ModelAndView update(ModelAndView mv, String gno) {
+        mv.setViewName("gallery/update.tiles");
+        mv.addObject("g", gsrv.readOneGallery(gno));
+        return mv;
+    }
+
+    @PostMapping("/gallery/update")
+    public String updateok(Gallery g, MultipartFile[] img,
+                           String todie){
+
+        gsrv.modifyGallery(g, img);
+
+        return "redirect:/gallery/list";
+    }
 }

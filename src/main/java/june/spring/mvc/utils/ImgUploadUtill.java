@@ -14,8 +14,8 @@ import java.util.Date;
 public class ImgUploadUtill {
 
     // 이미지 업로드 경로 설정정
-   private String uploadPath = "C:/java/nginx-1.20.1/html/cdn";
-   private String thumbnailPath = "C:/java/nginx-1.20.1/html/thumb";
+   private String uploadPath = "C:/java/nginx-1.20.1/html/cdn/";
+   private String thumbnailPath = "C:/java/nginx-1.20.1/html/thumb/";
 
 
     // 갤러리에 이미지 첨부시 파일 존재 여부 확인
@@ -36,7 +36,8 @@ public class ImgUploadUtill {
     public String ImageUpload(MultipartFile f, String uuid) {
         // uuid : 20210616111111
         // fname : abc.png
-        // =>   abc20210616111111.png
+        // => 20210616111111_abc.png (x)
+        // => abc20210616111111.png (o)
         String ofname = f.getOriginalFilename();
         //String nfname = makeUUID() + "_" + ofname;
         int pos = ofname.lastIndexOf(".");
